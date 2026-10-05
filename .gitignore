@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Conda / 虚拟环境
+.venv/
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 本地启动器
+打开AI环境.bat
+
+# 数据和模型
+data/raw/*
+data/processed/*
+models/*.pth
+models/*.pt
+runs/
+outputs/
+
+# 编辑器和系统文件
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
