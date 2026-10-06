@@ -42,6 +42,8 @@ TARGET_CLASSES = [
 
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".bmp", ".webp"}
 RANDOM_SEED = 42
+# 感知哈希近重复判定阈值：64 位 dHash 的汉明距离 <= 该值即视为近重复。
+NEAR_DUP_HAMMING_THRESHOLD = 5
 
 
 def sha256_file(path: Path) -> str:
@@ -50,6 +52,28 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: file.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def dhash(image: Image.Image, hash_size: int = 8) -> int:
+    """返回图片的 64 位差异哈希（dHash），用于近重复检测。
+
+    将灰度图缩放到 (hash_size + 1) x hash_size，逐行比较相邻像素，
+    得到 hash_size * hash_size 个比特。不同压缩/缩放的同一张图距离通常很小。
+    """
+    grayscale = image.convert("L").resize(
+        (hash_size + 1, hash_size), Image.Resampling.LANCZOS
+    )
+    pixels = np.asarray(grayscale, dtype=np.uint8)
+    diff = pixels[:, 1:] > pixels[:, :-1]
+    value = 0
+    for bit in diff.flatten():
+        value = (value << 1) | int(bit)
+    return value
+
+
+def hamming_distance(left: int, right: int) -> int:
+    """两个等长整数之间置位不同的比特数。"""
+    return (left ^ right).bit_count()
 
 
 def inspect_image(path: Path) -> dict[str, str | int | None]:
@@ -63,6 +87,7 @@ def inspect_image(path: Path) -> dict[str, str | int | None]:
             "height": height,
             "mode": image.mode,
             "format": image.format,
+            "dhash": dhash(image),
         }
 
 
@@ -142,6 +167,37 @@ def main() -> None:
         hash_to_record[digest] = record
         unique_records.append(record)
 
+    # 在精确去重的基础上，再做一次感知哈希近重复检测。
+    # 贪心聚类：每条记录与已有簇的代表比对，距离超过阈值则另起新簇。
+    clusters: list[list[dict[str, object]]] = []
+    for record in unique_records:
+        record_hash = int(record["dhash"])
+        for cluster in clusters:
+            if (
+                hamming_distance(record_hash, int(cluster[0]["dhash"]))
+                <= NEAR_DUP_HAMMING_THRESHOLD
+            ):
+                cluster.append(record)
+                break
+        else:
+            clusters.append([record])
+
+    near_duplicate_pairs: list[
+        tuple[dict[str, object], dict[str, object], int]
+    ] = []
+    for cluster in clusters:
+        if len(cluster) < 2:
+            continue
+        kept = cluster[0]
+        for duplicate in cluster[1:]:
+            distance = hamming_distance(
+                int(kept["dhash"]), int(duplicate["dhash"])
+            )
+            near_duplicate_pairs.append((kept, duplicate, distance))
+
+    # 每个近重复簇只保留一个代表，其余作为近重复图片从干净集中移除。
+    final_records = [cluster[0] for cluster in clusters]
+
     for label in TARGET_CLASSES:
         class_records = [
             record for record in unique_records if record["label"] == label
@@ -162,11 +218,18 @@ def main() -> None:
 
     unique_records.sort(key=lambda record: (str(record["label"]), str(record["path"])))
 
+    # 统计落在不同划分里的近重复对，用于发现训练/验证/测试之间的数据泄漏。
+    cross_split_near_duplicates = sum(
+        1
+        for kept, duplicate, _ in near_duplicate_pairs
+        if kept["split"] != duplicate["split"]
+    )
+
     raw_count_series = pd.Series(raw_counts, dtype="int64").reindex(
         TARGET_CLASSES, fill_value=0
     )
     clean_count_series = pd.Series(
-        Counter(str(record["label"]) for record in unique_records),
+        Counter(str(record["label"]) for record in final_records),
         dtype="int64",
     ).reindex(TARGET_CLASSES, fill_value=0)
 
@@ -204,6 +267,27 @@ def main() -> None:
         encoding="utf-8-sig",
     )
 
+    pd.DataFrame(
+        [
+            {
+                "kept_path": kept["path"],
+                "kept_label": kept["label"],
+                "duplicate_path": duplicate["path"],
+                "duplicate_label": duplicate["label"],
+                "hamming_distance": distance,
+                "kept_dhash": kept["dhash"],
+                "duplicate_dhash": duplicate["dhash"],
+                "kept_split": kept["split"],
+                "duplicate_split": duplicate["split"],
+            }
+            for kept, duplicate, distance in near_duplicate_pairs
+        ]
+    ).to_csv(
+        REPORT_ROOT / "near_duplicates.csv",
+        index=False,
+        encoding="utf-8-sig",
+    )
+
     manifest_rows = [
         {
             "path": record["path"],
@@ -213,7 +297,7 @@ def main() -> None:
             "width": record["width"],
             "height": record["height"],
         }
-        for record in unique_records
+        for record in final_records
     ]
     pd.DataFrame(manifest_rows).to_csv(
         MANIFEST_PATH,
@@ -244,7 +328,7 @@ def main() -> None:
     sampler = random.Random(RANDOM_SEED)
     for label in TARGET_CLASSES:
         candidates = [
-            record for record in unique_records if record["label"] == label
+            record for record in final_records if record["label"] == label
         ]
         sampler.shuffle(candidates)
         sample_records.extend(candidates[:2])
@@ -285,7 +369,7 @@ def main() -> None:
         plt.close(fig)
 
     split_counts = Counter(
-        str(record["split"]) for record in unique_records
+        str(record["split"]) for record in final_records
     )
 
     summary = {
@@ -295,7 +379,9 @@ def main() -> None:
         "valid_total": len(valid_records),
         "corrupt_count": len(corrupt_rows),
         "duplicate_count": len(duplicate_rows),
-        "clean_total": len(unique_records),
+        "near_duplicate_count": len(near_duplicate_pairs),
+        "cross_split_near_duplicates": cross_split_near_duplicates,
+        "clean_total": len(final_records),
         "raw_class_counts": {
             label: int(raw_count_series[label]) for label in TARGET_CLASSES
         },
@@ -321,6 +407,8 @@ def main() -> None:
     print(f"有效图片：{summary['valid_total']}")
     print(f"损坏图片：{summary['corrupt_count']}")
     print(f"重复图片：{summary['duplicate_count']}")
+    print(f"近重复图片：{summary['near_duplicate_count']}")
+    print(f"跨划分近重复对：{summary['cross_split_near_duplicates']}")
     print(f"去重后图片：{summary['clean_total']}")
     print(f"划分统计：{summary['split_counts']}")
     print(f"清单文件：{MANIFEST_PATH}")

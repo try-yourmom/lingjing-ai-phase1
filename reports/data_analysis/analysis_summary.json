@@ -1,0 +1,74 @@
+{
+  "raw_total": 8623,
+  "clean_total": 8571,
+  "removed_duplicates": 21,
+  "corrupt_images": 0,
+  "cross_label_duplicates": 0,
+  "removed_near_duplicates": 31,
+  "cross_label_near_duplicates": 3,
+  "cross_split_near_duplicates": 14,
+  "class_counts_raw": {
+    "Apple___Apple_scab": 630,
+    "Apple___Black_rot": 621,
+    "Apple___Cedar_apple_rust": 275,
+    "Apple___healthy": 1645,
+    "Tomato___Early_blight": 1000,
+    "Tomato___Late_blight": 1909,
+    "Tomato___Leaf_Mold": 952,
+    "Tomato___healthy": 1591
+  },
+  "class_counts_clean": {
+    "Apple___Apple_scab": 628,
+    "Apple___Black_rot": 619,
+    "Apple___Cedar_apple_rust": 275,
+    "Apple___healthy": 1635,
+    "Tomato___Early_blight": 999,
+    "Tomato___Late_blight": 1888,
+    "Tomato___Leaf_Mold": 952,
+    "Tomato___healthy": 1575
+  },
+  "duplicate_by_label": {
+    "Apple___Apple_scab": 0,
+    "Apple___Black_rot": 0,
+    "Apple___Cedar_apple_rust": 0,
+    "Apple___healthy": 7,
+    "Tomato___Early_blight": 0,
+    "Tomato___Late_blight": 8,
+    "Tomato___Leaf_Mold": 0,
+    "Tomato___healthy": 6
+  },
+  "split_counts": {
+    "train": 5996,
+    "val": 1284,
+    "test": 1291
+  },
+  "split_percentages": {
+    "train": 69.96,
+    "val": 14.98,
+    "test": 15.06
+  },
+  "imbalance_ratio": 6.865,
+  "image_width": {
+    "min": 256,
+    "max": 256,
+    "mean": 256.0,
+    "median": 256.0
+  },
+  "image_height": {
+    "min": 256,
+    "max": 256,
+    "mean": 256.0,
+    "median": 256.0
+  },
+  "aspect_ratio": {
+    "min": 1.0,
+    "max": 1.0,
+    "mean": 1.0
+  },
+  "color_modes": {
+    "RGB": 8623
+  },
+  "image_formats": {
+    "JPEG": 8623
+  }
+}

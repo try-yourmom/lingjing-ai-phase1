@@ -1,0 +1,9 @@
+﻿label,train,val,test
+Apple___Apple_scab,439,94,95
+Apple___Black_rot,433,93,93
+Apple___Cedar_apple_rust,192,41,42
+Apple___healthy,1144,245,246
+Tomato___Early_blight,699,150,150
+Tomato___Late_blight,1322,282,284
+Tomato___Leaf_Mold,666,142,144
+Tomato___healthy,1101,237,237
