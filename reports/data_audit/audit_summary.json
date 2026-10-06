@@ -1,0 +1,43 @@
+{
+  "source": "F:\\ai+后端\\data\\raw\\plantvillage\\plantvillage dataset\\color",
+  "target_classes": [
+    "Apple___Apple_scab",
+    "Apple___Black_rot",
+    "Apple___Cedar_apple_rust",
+    "Apple___healthy",
+    "Tomato___Early_blight",
+    "Tomato___Late_blight",
+    "Tomato___Leaf_Mold",
+    "Tomato___healthy"
+  ],
+  "raw_total": 8623,
+  "valid_total": 8623,
+  "corrupt_count": 0,
+  "duplicate_count": 21,
+  "clean_total": 8602,
+  "raw_class_counts": {
+    "Apple___Apple_scab": 630,
+    "Apple___Black_rot": 621,
+    "Apple___Cedar_apple_rust": 275,
+    "Apple___healthy": 1645,
+    "Tomato___Early_blight": 1000,
+    "Tomato___Late_blight": 1909,
+    "Tomato___Leaf_Mold": 952,
+    "Tomato___healthy": 1591
+  },
+  "clean_class_counts": {
+    "Apple___Apple_scab": 630,
+    "Apple___Black_rot": 621,
+    "Apple___Cedar_apple_rust": 275,
+    "Apple___healthy": 1638,
+    "Tomato___Early_blight": 1000,
+    "Tomato___Late_blight": 1901,
+    "Tomato___Leaf_Mold": 952,
+    "Tomato___healthy": 1585
+  },
+  "split_counts": {
+    "train": 6018,
+    "val": 1287,
+    "test": 1297
+  }
+}
