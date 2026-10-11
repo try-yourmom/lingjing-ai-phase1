@@ -10,3 +10,7 @@ dependencies:
       - matplotlib==3.11.2
       - jupyterlab==4.6.4
       - ipykernel==7.4.0
+      - Pillow==12.3.0
+      - pytest==9.1.1
+# CUDA PyTorch is installed separately:
+# python -m pip install -r requirements-torch.txt
