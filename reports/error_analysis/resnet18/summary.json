@@ -1,0 +1,54 @@
+{
+  "test_samples": 1291,
+  "correct": 1266,
+  "errors": 25,
+  "accuracy": 0.9806351665375678,
+  "mean_error_confidence": 0.48236792206764223,
+  "top_confusion_pairs": [
+    {
+      "true_label": "Tomato___Late_blight",
+      "pred_label": "Tomato___Early_blight",
+      "count": 13
+    },
+    {
+      "true_label": "Tomato___Late_blight",
+      "pred_label": "Tomato___healthy",
+      "count": 2
+    },
+    {
+      "true_label": "Tomato___Leaf_Mold",
+      "pred_label": "Tomato___Early_blight",
+      "count": 2
+    },
+    {
+      "true_label": "Apple___healthy",
+      "pred_label": "Tomato___healthy",
+      "count": 1
+    },
+    {
+      "true_label": "Apple___healthy",
+      "pred_label": "Apple___Apple_scab",
+      "count": 1
+    }
+  ],
+  "worst_classes": [
+    {
+      "true_label": "Tomato___Late_blight",
+      "sum": 268,
+      "count": 284,
+      "accuracy": 0.9436619718309859
+    },
+    {
+      "true_label": "Tomato___Leaf_Mold",
+      "sum": 141,
+      "count": 144,
+      "accuracy": 0.9791666666666666
+    },
+    {
+      "true_label": "Tomato___Early_blight",
+      "sum": 147,
+      "count": 150,
+      "accuracy": 0.98
+    }
+  ]
+}

@@ -16,13 +16,18 @@ __pycache__/
 # 数据和模型
 data/raw/*
 data/processed/*
+!data/processed/*.csv
 models/*.pth
 models/*.pt
+models/*.onnx
 runs/
 outputs/
+.cache/
 
 # 编辑器和系统文件
 .vscode/
 .idea/
 Thumbs.db
 Desktop.ini
+# 临时烟雾测试
+reports/training/smoke/

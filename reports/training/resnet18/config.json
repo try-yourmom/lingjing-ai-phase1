@@ -1,0 +1,25 @@
+{
+  "manifest_path": "F:\\ai+后端\\data\\processed\\plantvillage8_manifest.csv",
+  "run_name": "resnet18",
+  "epochs": 25,
+  "batch_size": 32,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "image_size": 224,
+  "num_workers": 4,
+  "seed": 42,
+  "patience": 7,
+  "max_train_batches": 0,
+  "max_val_batches": 0,
+  "device": "cuda",
+  "class_names": [
+    "Apple___Apple_scab",
+    "Apple___Black_rot",
+    "Apple___Cedar_apple_rust",
+    "Apple___healthy",
+    "Tomato___Early_blight",
+    "Tomato___Late_blight",
+    "Tomato___Leaf_Mold",
+    "Tomato___healthy"
+  ]
+}

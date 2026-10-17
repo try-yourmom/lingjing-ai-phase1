@@ -1,0 +1,26 @@
+﻿path,true_index,true_label,pred_index,pred_label,confidence,correct
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/d55910c3-3530-4bde-94a7-6748f5fadfb4___RS_Late.B 7161.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.8315136432647705,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/d75573fb-2bd8-43fa-9af5-3f219e35142f___RS_Late.B 5070.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.7813254594802856,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/0406a9d1-1b4e-42e2-814b-e03e525a51b2___RS_Late.B 5224.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.6979129314422607,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/cd3a1b72-2538-4ed0-9b04-6485b4f0ab0c___RS_Late.B 7149.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.5682037472724915,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/2598e4ba-1e3c-43f7-bb7d-da6164209acf___RS_Late.B 4850.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.5284451246261597,False
+data/raw/plantvillage/plantvillage dataset/color/Apple___healthy/ebba11b3-2d4b-4580-9c2f-9e59c1047cdc___RS_HL 7305.JPG,3,Apple___healthy,0,Apple___Apple_scab,0.5197353959083557,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/b0fbd7bd-f906-489b-96ff-a2683eb76dd3___RS_Late.B 6173.JPG,5,Tomato___Late_blight,7,Tomato___healthy,0.5096834301948547,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/005e3b43-9050-47da-9498-f9ecdcc703b3___RS_Late.B 5104.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.5009212493896484,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/21f3629a-8126-4f23-85c5-05636ff87644___RS_Late.B 6906.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.48167699575424194,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/1869d21d-5461-4378-bddb-8de766b836f7___GHLB Leaf 12 Day 6.JPG,5,Tomato___Late_blight,3,Apple___healthy,0.4802790582180023,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/77e0bc13-fdcb-4fff-a3e9-17b5d88224a4___GHLB2 Leaf 59.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.4745701253414154,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/afb626cf-c9bf-498f-bdf2-c0286d96f681___GHLB2 Leaf 147.1.JPG,5,Tomato___Late_blight,7,Tomato___healthy,0.4578843414783478,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Leaf_Mold/9667b27d-09e8-4776-97bf-e6088227d26d___Crnl_L.Mold 6670.JPG,6,Tomato___Leaf_Mold,4,Tomato___Early_blight,0.4532114565372467,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/78a7b27e-8992-4a31-ad38-cd8ecee2e3d4___GHLB2 Leaf 58.1.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.4457366168498993,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/2798c7ea-850e-49a7-b304-3114c60c6baf___RS_Late.B 7141.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.44210731983184814,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/464d50a2-adf7-4a8d-b2e0-4fcb01b02fe6___RS_Late.B 5030.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.4410400390625,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/cf2e943e-c8d7-43eb-a137-72f6b67b187a___RS_Late.B 7192.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.4404440224170685,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Early_blight/48dd3efc-400d-4b81-a569-13a51083df58___RS_Erly.B 7718.JPG,4,Tomato___Early_blight,7,Tomato___healthy,0.4404008686542511,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Early_blight/654d7c11-664e-47c0-a6aa-c5c45a07e386___RS_Erly.B 7799.JPG,4,Tomato___Early_blight,3,Apple___healthy,0.42637112736701965,False
+data/raw/plantvillage/plantvillage dataset/color/Apple___healthy/ec274680-0ee1-49d4-af42-48c6fe0da457___RS_HL 7306.JPG,3,Apple___healthy,7,Tomato___healthy,0.4148607552051544,False
+data/raw/plantvillage/plantvillage dataset/color/Apple___Apple_scab/51929389-451f-4c78-a66b-b644e82a33b6___FREC_Scab 3528.JPG,0,Apple___Apple_scab,3,Apple___healthy,0.4125106930732727,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Leaf_Mold/2b8e612f-7448-44f7-899c-95b3c8291824___Crnl_L.Mold 6671.JPG,6,Tomato___Leaf_Mold,4,Tomato___Early_blight,0.4002755284309387,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Leaf_Mold/5461b103-1d68-4a3c-a083-cd31a3718d2e___Crnl_L.Mold 6890.JPG,6,Tomato___Leaf_Mold,7,Tomato___healthy,0.3315850794315338,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Late_blight/3e7acc8a-73b1-4c21-bc67-bb6e65c4d373___GHLB Leaf 8.1 Day 12.JPG,5,Tomato___Late_blight,4,Tomato___Early_blight,0.3051735758781433,False
+data/raw/plantvillage/plantvillage dataset/color/Tomato___Early_blight/e468b44a-912b-4e7f-9383-41050a5d421b___RS_Erly.B 8445.JPG,4,Tomato___Early_blight,5,Tomato___Late_blight,0.2733294665813446,False

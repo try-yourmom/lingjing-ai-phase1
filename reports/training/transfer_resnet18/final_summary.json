@@ -1,0 +1,9 @@
+{
+  "best_epoch": 2,
+  "best_val_macro_f1": 0.9964958114920646,
+  "test_loss": 0.5102504544900796,
+  "test_accuracy": 0.9930286599535244,
+  "test_macro_f1": 0.9935710962670193,
+  "checkpoint": "F:\\ai+后端\\models\\transfer_resnet18_best.pt",
+  "pretrained_weights": "IMAGENET1K_V1"
+}

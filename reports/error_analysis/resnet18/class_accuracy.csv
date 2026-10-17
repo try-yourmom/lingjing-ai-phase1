@@ -1,0 +1,9 @@
+﻿true_label,sum,count,accuracy
+Apple___Apple_scab,94,95,0.9894736842105263
+Apple___Black_rot,93,93,1.0
+Apple___Cedar_apple_rust,42,42,1.0
+Apple___healthy,244,246,0.991869918699187
+Tomato___Early_blight,147,150,0.98
+Tomato___Late_blight,268,284,0.9436619718309859
+Tomato___Leaf_Mold,141,144,0.9791666666666666
+Tomato___healthy,237,237,1.0

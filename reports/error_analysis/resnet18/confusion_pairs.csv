@@ -1,0 +1,12 @@
+﻿true_label,pred_label,count
+Tomato___Late_blight,Tomato___Early_blight,13
+Tomato___Late_blight,Tomato___healthy,2
+Tomato___Leaf_Mold,Tomato___Early_blight,2
+Apple___healthy,Tomato___healthy,1
+Apple___healthy,Apple___Apple_scab,1
+Apple___Apple_scab,Apple___healthy,1
+Tomato___Early_blight,Apple___healthy,1
+Tomato___Late_blight,Apple___healthy,1
+Tomato___Early_blight,Tomato___healthy,1
+Tomato___Early_blight,Tomato___Late_blight,1
+Tomato___Leaf_Mold,Tomato___healthy,1
