@@ -34,10 +34,27 @@ def count_parameters(checkpoint_path: Path) -> int:
         model = resnet18(num_classes=len(checkpoint["class_names"]))
     return sum(parameter.numel() for parameter in model.parameters())
 
+
+def resolve_checkpoint(name: str, summary: dict[str, object]) -> Path:
+    run_name = name.removeprefix("handwritten_")
+    candidate = PROJECT_ROOT / "models" / f"{run_name}_best.pt"
+    if candidate.exists():
+        return candidate
+
+    recorded = Path(str(summary["checkpoint"]))
+    if recorded.exists():
+        return recorded
+
+    raise FileNotFoundError(
+        "找不到模型权重。请将权重放到 "
+        f"{candidate}，或重新运行对应训练脚本。"
+    )
+
+
 def load_run(name: str, run_dir: Path) -> dict[str, object]:
     summary = json.loads((run_dir / "final_summary.json").read_text(encoding="utf-8"))
     history = pd.read_csv(run_dir / "history.csv")
-    checkpoint = Path(summary["checkpoint"])
+    checkpoint = resolve_checkpoint(name, summary)
 
     return {
         "run_name": name,
