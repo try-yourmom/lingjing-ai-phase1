@@ -41,6 +41,18 @@ data/processed/plantvillage8_manifest.csv
 测试集：1291
 ```
 
+## 数据与模型权重交付
+
+原始数据和模型权重体积较大，不提交到 Git：
+
+```text
+data/raw/plantvillage/
+models/resnet18_best.pt
+models/transfer_resnet18_best.pt
+```
+
+GitHub 仓库保存代码、配置、数据清单、实验报告和文档。最终提交时请将原始数据或 8 类子集、两个模型权重一起放入压缩包，或提供稳定的网盘链接和放置目录说明。缺少权重时，先运行训练脚本生成。
+
 ## 开发环境
 
 - Python 3.11.16
