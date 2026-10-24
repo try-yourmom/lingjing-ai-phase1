@@ -6,22 +6,6 @@
 
 项目使用 PlantVillage 数据集中苹果和番茄共 8 个类别，完成数据分析、手写 ResNet、迁移学习对比、错误分析、Grad-CAM 和 FastAPI 推理接口。
 
-## 当前进度
-
-- [x] 建立独立的 Miniforge Python 3.11 环境
-- [x] 安装 PyTorch 2.11.0 + CUDA 12.8
-- [x] 初始化 Git 仓库并推送 GitHub
-- [x] 数据审计、去重、近重复检测与分层划分
-- [x] PyTorch Dataset、DataLoader 和 WeightedRandomSampler
-- [x] 手写 BasicBlock 和 ResNet18
-- [x] 手写 ResNet18 完整训练与测试集评估
-- [x] 错误样本分析
-- [x] 迁移学习 ResNet18 对比实验
-- [x] Grad-CAM 可解释性可视化
-- [x] FastAPI 推理接口
-- [ ] 运行视频
-- [ ] 个人总结与答辩稿
-
 ## 数据集
 
 原始数据保存在：
